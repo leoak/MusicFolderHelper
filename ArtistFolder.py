@@ -6,10 +6,10 @@ class ArtistFolder:
     if not isinstance(path, str):
       raise TypeError(f"Le nom {path} doit être une chaîne de caractères")
     self.path = path
-    if os.path.exists("mon_dossier"):
-      print("Le répertoire 'mon_dossier' existe")
+    if os.path.exists(self.path):
+      print(f"Le répertoire {self.path} existe")
     else:
-      raise FileNotFoundError("Le répertoire 'mon_dossier' n'existe pas")
+      raise FileNotFoundError(f"Le répertoire {self.path} n'existe pas")
 
 if __name__ == "__main__":
   try:
