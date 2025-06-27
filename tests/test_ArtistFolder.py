@@ -28,5 +28,11 @@ class TestMaClasse(unittest.TestCase):
     artistFolder = ArtistFolder(f"{curDir}/tests/testData/GoodDir")
     self.assertEqual(artistFolder.hasMD5(), True)
 
+  def test_getDir_should_return_artistName_with_space(self):
+    curDir = os.getcwd()
+    artistFolder = ArtistFolder(f"{curDir}/tests/testData/Unknown Artist")
+    artist = artistFolder.getDir()
+    self.assertEqual(artist, "Unknown Artist")
+
 if __name__ == "__main__":
   unittest.main()
