@@ -2,6 +2,15 @@
 
 A utility to help managing my audio files and metadata.
 
+My *music albums* are digitally stored as 
+* iso+cue files for SACD albums
+* flac+cue files for CD albums
+
+My goals are:
+- be able to retrieve albums per perfomer
+- be able to play albums in historical order (which is tricky due to re-releases or new masterings)
+- make sure that my data are consitent
+
 # Run the program
 py .\main.py _directory_
 
