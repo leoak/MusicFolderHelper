@@ -8,6 +8,8 @@ if __name__ == "__main__":
     artistFolder = ArtistFolder( theFolder )
     artist = artistFolder.getDir()
     hasMD5 = artistFolder.hasMD5()
+    hasCUE = artistFolder.hasCueFile()
 
     print(f"Artist is {artist}")
     print(f"MD5 is {artist}.md5: {hasMD5}")
+    print(f"Has at least a CUE file: {hasCUE}")

@@ -34,5 +34,15 @@ class TestMaClasse(unittest.TestCase):
     artist = artistFolder.getDir()
     self.assertEqual(artist, "Unknown Artist")
 
+  def test_hasCUE_should_return_false_no_CUE_file(self):
+    curDir = os.getcwd()
+    artistFolder = ArtistFolder(f"{curDir}/tests/testData/FooBar")
+    self.assertEqual(artistFolder.hasCueFile(), False)
+  
+  def test_hasCUE_should_return_true_if_CUE_file(self):
+    curDir = os.getcwd()
+    artistFolder = ArtistFolder(f"{curDir}/tests/testData/GoodDir")
+    self.assertEqual(artistFolder.hasCueFile(), True)
+
 if __name__ == "__main__":
   unittest.main()

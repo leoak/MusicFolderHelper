@@ -14,6 +14,18 @@ class ArtistFolder:
   def getDir(self):
     return self.artistDir
 
+  def hasCueFile(self):
+    try:
+      items = os.listdir(self.path)
+      for item in items:
+        item_path = os.path.join(self.path, item)
+        if os.path.isfile(item_path) and item.endswith('.cue'):
+          return True
+      return False
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False
+    
   def hasMD5(self):
     print (f"Checking {self.md5File}") 
     return os.path.isfile(self.md5File)
