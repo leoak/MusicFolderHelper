@@ -6,11 +6,13 @@ class CUEFile:
     def __init__(self, path):
         if not isinstance(path, str):
             raise TypeError(f"The path parameter {path} must be a string")
+        self.path = path
+        self.isValid = False
     
-    def checkCUE(self, file):
-        path = os.path.dirname(file)
-        print (f"Checking CUE file in: {path}")
-        with open(file, 'r') as file:
+    def checkCUE(self):
+        path = os.path.dirname(self.path)
+
+        with open(self.path, 'r') as file:
             lines = file.readlines()
             for line in lines:
                 if line.startswith('FILE'):
@@ -20,7 +22,8 @@ class CUEFile:
                         filepath = os.path.join(path, filename)
                         if os.path.isfile(filepath):
                             print(f"The file '{filepath}' exists.")
-                            return True
+                            self.isValid = True
                         else:
                             print(f"The file '{filepath}' does not exist.")
-                            return False
+                            self.isValid = False
+                        return self.isValid

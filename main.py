@@ -9,7 +9,13 @@ if __name__ == "__main__":
     artist = artistFolder.getDir()
     hasMD5 = artistFolder.hasMD5()
     hasCUE = artistFolder.hasCueFile()
+    hasValidCUE = artistFolder.checkCUE()
 
     print(f"Artist is {artist}")
-    print(f"MD5 is {artist}.md5: {hasMD5}")
-    print(f"Has at least a CUE file: {hasCUE}")
+    print(f"    MD5 has {artist}.md5: {hasMD5}")
+    print(f"    Has at least a CUE file: {hasCUE}")
+    if hasCUE:
+        if hasValidCUE:
+            print("     CUE file is valid.")
+        else:
+            print("     *** CUE file is not valid.")
