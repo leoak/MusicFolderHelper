@@ -1,10 +1,12 @@
 import os
 
+from CUEFile import CUEFile
+
 class ArtistFolder:
 
   def __init__(self, path):
     if not isinstance(path, str):
-      raise TypeError(f"Le nom {path} doit être une chaîne de caractères")
+      raise TypeError(f"The path parameter {path} must be a string")
     self.path = path
     if not os.path.exists(self.path):
       raise FileNotFoundError(f"Le répertoire {self.path} n'existe pas")
@@ -25,7 +27,10 @@ class ArtistFolder:
     except Exception as e:
         print(f"An error occurred: {e}")
         return False
-    
+  
+  def checkCUE(self,file):
+    return CUEFile.checkCUE(self,file)
+      
   def hasMD5(self):
     print (f"Checking {self.md5File}") 
     return os.path.isfile(self.md5File)

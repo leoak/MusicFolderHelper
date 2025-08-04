@@ -2,7 +2,7 @@ import unittest
 import os
 from ArtistFolder import ArtistFolder
 
-class TestMaClasse(unittest.TestCase):
+class TestArtistFolder(unittest.TestCase):
 
   def test_instanciation_fail_if_path_is_NOT_String(self):      
     with self.assertRaises(TypeError):
